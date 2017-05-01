@@ -7,11 +7,21 @@
 </head>
 <body ng-app="toDoModule" ng-controller="toDoController">
 
+<!-- Add Appointment Input	-->
+	<input type="text" ng-model="appt.name" placeholder="Appointment">
+	<input type="datetime" ng-model="appt.time" placeholder="Time">
+	<button type="button" ng-click="addAppt(appt)">+</button>
+<!-- Add Task Input	-->
 	<input type="text" ng-model="task.name" placeholder="Task">
 	<button type="button" ng-click="addTask(task)">+</button>
 	
-	<div ng-repeat="task in list">
-		<p>{{task.name}}</p>
+<!-- Display Appointments	-->
+	<div ng-repeat="appt in apptList">
+		<p>- {{appt.name}} {{appt.time}}</p>
+	</div>	
+<!-- Display Tasks	-->
+	<div ng-repeat="task in taskList">
+		<p>&#9744;{{task.name}}</p>
 	</div>
 <!-- AngularJS	-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
