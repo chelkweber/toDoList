@@ -3,80 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Day 16 - Intro to AngularJS</title>
+  <title>To Do List</title>
 </head>
-<body ng-app="ourModule" ng-controller="ourController">
+<body ng-app="toDoModule" ng-controller="toDoController">
 
-	<input type="text" ng-model="item.name" placeholder="name">
-	<input type="number" ng-model="item.cost" placeholder="cost">
-	<button type="button" ng-click="addItem(item)">Add Item</button>
+	<input type="text" ng-model="task.name" placeholder="Task">
+	<button type="button" ng-click="addTask(task)">+</button>
 	
-	<div ng-repeat="item in list">
-		<p>{{item.name}} ${{item.cost}}</p>
+	<div ng-repeat="task in list">
+		<p>{{task.name}}</p>
 	</div>
-	
-	
-	<!--
-	<input type="text" ng-model="newDog.name">
-	<input type="text" ng-model="newDog.breed">
-	<button type="button" ng-click="addDog(newDog)">Add Dog</button>
-	<div ng-repeat="dog in dogs">
-		{{ dog.name }} {{ dog.breed }}
-	</div>
-	
--->
-	<!-- mad lib	-->
-<!--
-	<input type="text" ng-model="adj" placeholder="Adjective">
-	<input type="text" ng-model="noun" placeholder="Noun">
-	<input type="text" ng-model="person" placeholder="Person in Room">
-	<input type="text" ng-model="pluralNoun" placeholder="Plural Noun">
-	<input type="text" ng-model="Store" placeholder="Store">
-	<input type="number" ng-model="quantity" placeholder="Quantity">
-	<input type="number" ng-model="price" placeholder="Price">
-	
-	
-	<p>There are many {{ adj }} ways to choose a {{ noun }} to read. First, you could ask for a recommendation from your friends and {{ pluralNoun }}. It is {{ true || false }} that {{ person }} has terrible taste in {{ noun }}s. You can find cheap {{ noun }}s at {{ store }}. I once found {{ quantity }} for only ${{ quantity * price }} at {{ store }}.</p>
--->
-	
-<!-- ng-repeat	-->
-<!--
-	<div ng-init="Beatles=['Paul McCartney', 'John Lennon', 'Ringo Star', 'George Harrison']">
-	
-		<p ng-repeat="beatle in Beatles"> {{ beatle }}</p>
-	
-	</div>
-	
-	<div ng-init="dogs=[{name: 'Munch', breed: 'demon', age: 2}, {name: 'Lilly', breed: 'cavalier', age: 13}, {name: 'Fred', breed: 'yorkie-mutt', age: 4}, {name: 'Chip', breed: 'wiener-mutt', age: 1}]">
-	
-		<div ng-repeat="dog in dogs">
-			<h4>{{ dog.name }}</h4>
-			<p>{{ dog.breed }}</p>
-			<p>{{ dog. }}</p>
-		</div>
-	
-	</div>
--->
-	
-<!-- Favorite Band Roster, search -->
-<!--
-
-	
-	<div ng-init="Haim=[{name: 'Este', instrument: 'bass', ig: 'estehaim'}, {name: 'Danielle', instrument: 'Guitar and Lead Vocals', ig: 'daniellehaim'}, {name: 'Alana', instrument: 'Guitar', ig: 'babyhaim'} ]">
-		<input type="text" ng-model="person">
-		
-		<div ng-repeat="sister in Haim | filter:person">
-			<h1>{{ sister.name | uppercase }}</h1>
-			<p>{{ sister.instrument }}</p>
-			<a href="https://www.instagram.com/{{ sister.ig }}/" target="_blank">@{{ sister.ig }}</a>
-		</div>
-		
-	</div>
-	
--->
-	
-	
-
 <!-- AngularJS	-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <!-- My Script	-->
