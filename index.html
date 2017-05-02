@@ -6,30 +6,31 @@
   	<title>To Do List</title>
 </head>
 <body ng-app="toDoModule" ng-controller="toDoController">
-
+	<div id="appt-list">
 <!-- Add Appointment Input	-->
-	<input type="text" ng-model="appt.date" placeholder="MM/DD/YY">
-	<input type="text" ng-model="appt.name" placeholder="Appointment">
-	<input type="datetime" ng-model="appt.time" placeholder="Time">
-	<button type="button" ng-click="addAppt(appt)">+</button>
-<!-- Add Task Input	-->
-	<input type="text" ng-model="task.date" placeholder="MM/DD/YY">
-	<input type="text" ng-model="task.name" placeholder="Task">
-	<button type="button" ng-click="addTask(task)">+</button>
-	
+		<input type="text" ng-model="appt.date" placeholder="MM/DD">
+		<input type="text" ng-model="appt.name" placeholder="Appointment">
+		<input type="datetime" ng-model="appt.time" placeholder="Time">
+		<button type="button" ng-click="addAppt(appt)">+</button>
 <!-- Display Appointments	-->
-	<div ng-repeat="appt in apptList | orderby: 'appt.date'">
-		<p>-{{appt.date}} {{appt.name}} {{appt.time}}</p>
-	</div>	
-<!-- Display Tasks	-->
-	<div ng-repeat="task in taskList">
-		<p>&#9744;{{task.name}}</p>
+		<div ng-repeat="appt in apptList" >
+			<p ng-dblclick="removeAppt($index)"> &#8212; {{appt.date}} {{appt.name}} {{appt.time}}</p>
+		</div>	
 	</div>
+
+
+	<div id="task-list">
+<!-- Add Task Input	-->
+		<input type="text" ng-model="task.name" placeholder="Task">
+		<button type="button" ng-click="addTask(task)">+</button>
+<!-- Display Tasks	-->
+		<div ng-repeat="task in taskList">
+			<p ng-click="strick($task)" ng-dblclick="removeTask($index)">&#9744;{{task.name}}</p>
+		</div>
+	</div>
+	
 <!-- AngularJS	-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<!-- Datepicker Plugin	-->
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- My Script	-->
 	<script src="script.js"></script>
 </body>
