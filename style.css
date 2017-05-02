@@ -7,6 +7,15 @@ body {
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
+#search {
+	border: none;
+	border-bottom: solid 2px #F8FFE5;
+	background: transparent;
+	color: #F8FFE5;	
+	display: block;
+	margin: 0 auto;
+}
+
 .list {
 	width: 40%;
 	margin: 3%;

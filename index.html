@@ -9,6 +9,7 @@
 </head>
 <body ng-app="toDoModule" ng-controller="toDoController">
 	<h1>To Do List</h1>
+	<input type="text" ng-model="filter" id="search" placeholder="Search">
 	
 	<div class="list" id="appointments">
 		<h2>Appointments</h2>
@@ -18,7 +19,7 @@
 		<input type="text" ng-model="appt.date" placeholder="MM/DD" id="date">
 		<input type="datetime" ng-model="appt.time" placeholder="Time" id="time">
 <!-- Display Appointments	-->
-		<div ng-repeat="appt in apptList" >
+		<div ng-repeat="appt in apptList | filter: filter | orderBy: 'date'">
 			<p ng-dblclick="removeAppt($index)"> &#8212; {{appt.date}} {{appt.name}} {{appt.time}}</p>
 		</div>	
 	</div>
@@ -30,7 +31,7 @@
 		<input type="text" ng-model="task.name" placeholder="Task" id="task">
 		<button type="button" ng-click="addTask(task)">+</button>
 <!-- Display Tasks	-->
-		<div ng-repeat="task in taskList">
+		<div ng-repeat="task in taskList | filter: filter | orderBy: 'name'">
 			<p ng-click="strick($task)" ng-dblclick="removeTask($index)">&#9744; {{task.name}}</p>
 		</div>
 	</div>
